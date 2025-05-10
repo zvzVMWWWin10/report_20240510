@@ -17,22 +17,26 @@ The following table displays data on the last time they log to their game accoun
 |-|-|-|-|-|-|
 |59|8|6|3|2|93|
 
-~Data~ ~collected~ ~on~ ~8pm,JST,May9.~
+^Data^ ^collected^ ^on^ ^8pm,JST,May9.^
 
 It's not hard to notice that most players are active while there're also plenty that haven't logged in for long. For simplicity, we assume members logging in within 7 days contribute to game activities, while the 93 inactive members (7d or more) do not.
 
 let $f(t)$ to be the [PDF](https://en.wikipedia.org/wiki/Probability_density_function) of member accessing the game last time,   
 then using log-normal distribution we have
-$$f(t)=\frac{1}{x\sigma\sqrt{2\pi}}\exp\left(-\frac{(\ln{x}-\mu)^2}{2\sigma^2}\right)$$
+
+\[ f(t)=\frac{1}{x\sigma\sqrt{2\pi}}\exp\left(-\frac{(\ln{x}-\mu)^2}{2\sigma^2}\right) \]
 
 Using [MLE](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), we get $\mu=-0.86, \sigma=1.27$ as graphed below.
 
 ![](lognormal_distribution.png)
 
-let $A$ be the number of days the user access the game once and $B(t)$ for last log, then obviously
-$$f_{A|B}(x|t) = \frac{t}{x^2} \exp\left( \frac{1}{2\sigma^2} \left( \ln \frac{t x}{e^{2\mu}} \right) \ln \frac{t}{x} \right) \cdot \left( 1 + \frac{\ln x - \mu}{\sigma^2} \right)$$
-so
-$$f_A(t) = \frac{1}{t \sigma \sqrt{2\pi}} \exp\left(-\frac{(\ln t - \mu)^2}{2\sigma^2}\right) \left[ 1 + \frac{\ln t - \mu}{\sigma^2} \right], \quad t > 0$$
+let $A$ be the number of days the user access the game once and $B(t)$ for last log, then obviously  
+
+\[ f_{A|B}(x|t) = \frac{t}{x^2} \exp\left( \frac{1}{2\sigma^2} \left( \ln \frac{t x}{e^{2\mu}} \right) \ln \frac{t}{x} \right) \cdot \left( 1 + \frac{\ln x - \mu}{\sigma^2} \right) \]  
+
+so  
+
+\[ f_A(t) = \frac{1}{t \sigma \sqrt{2\pi}} \exp\left(-\frac{(\ln t - \mu)^2}{2\sigma^2}\right) \left[ 1 + \frac{\ln t - \mu}{\sigma^2} \right], \quad t > 0 \]
 
 ![](marginal_density_f_A.png)
 
@@ -119,16 +123,16 @@ On weekends, daily shards from Lucky Fortune (for 93 logins):
 
 Since Lucky Fortune is only available on weekends (2 out of 7 days), its weekly contribution is averaged over the week:
 
-$$
+\[
 \frac{44 \times 2}{7} \approx 12.6 \text{ shards per day.}
-$$
+\]
 
 ### Total Daily Droid Shard Estimate
 Combining contributions from all sources:
 
-$$
+\[
 242 \text{ (Reward Quests)} + 93 \text{ (Island Battles)} + 12.6 \text{ (Lucky Fortune)} \approx 347.6 \text{ shards per day.}
-$$
+\]
 
 ## Conclusion
 Based on the analysis, the alliance accumulates approximately **348 Droid Shards per day** from active members. This estimate accounts for daily logins, Reward Quests, Island Battles, and weekend Lucky Fortune draws. These findings can guide decisions on alliance strategies, such as prioritizing events or optimizing quest completion rates. For further analysis, collecting data on Pop Stars rewards and gem-based Lucky Fortune purchases could refine the estimate.
