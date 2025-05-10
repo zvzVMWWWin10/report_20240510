@@ -24,7 +24,7 @@ It's not hard to notice that most players are active while there're also plenty 
 let $f(t)$ to be the [PDF](https://en.wikipedia.org/wiki/Probability_density_function) of member accessing the game last time,   
 then using log-normal distribution we have
 
-\[ f(t)=\frac{1}{x\sigma\sqrt{2\pi}}\exp\left(-\frac{(\ln{x}-\mu)^2}{2\sigma^2}\right) \]
+$$ f(t)=\frac{1}{x\sigma\sqrt{2\pi}}\exp\left(-\frac{(\ln{x}-\mu)^2}{2\sigma^2}\right) $$
 
 Using [MLE](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), we get $\mu=-0.86, \sigma=1.27$ as graphed below.
 
@@ -32,11 +32,11 @@ Using [MLE](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), we get
 
 let $A$ be the number of days the user access the game once and $B(t)$ for last log, then obviously  
 
-\[ f_{A|B}(x|t) = \frac{t}{x^2} \exp\left( \frac{1}{2\sigma^2} \left( \ln \frac{t x}{e^{2\mu}} \right) \ln \frac{t}{x} \right) \cdot \left( 1 + \frac{\ln x - \mu}{\sigma^2} \right) \]  
+$$ f_{A|B}(x|t) = \frac{t}{x^2} \exp\left( \frac{1}{2\sigma^2} \left( \ln \frac{t x}{e^{2\mu}} \right) \ln \frac{t}{x} \right) \cdot \left( 1 + \frac{\ln x - \mu}{\sigma^2} \right) $$  
 
 so  
 
-\[ f_A(t) = \frac{1}{t \sigma \sqrt{2\pi}} \exp\left(-\frac{(\ln t - \mu)^2}{2\sigma^2}\right) \left[ 1 + \frac{\ln t - \mu}{\sigma^2} \right], \quad t > 0 \]
+$$ f_A(t) = \frac{1}{t \sigma \sqrt{2\pi}} \exp\left(-\frac{(\ln t - \mu)^2}{2\sigma^2}\right) \left[ 1 + \frac{\ln t - \mu}{\sigma^2} \right], \quad t > 0 $$
 
 ![](marginal_density_f_A.png)
 
@@ -77,9 +77,9 @@ From the provided data, 59 members log in daily (1d or less), 8 members log in e
 
 The expected login frequency per member can be derived from $f_A(t)$. Given the log-normal parameters ($ \mu = -0.86, \sigma = 1.27 $), the mean login interval is approximately $E[A] = e^{\mu + \sigma^2/2} \approx 0.84$ days, meaning active members log in roughly every 0.84 days (or ~1.19 times per day). For the 78 active members, we estimate total daily logins as:
 
-\[
+$$
 78 \times 1.19 \approx 93 \text{ logins per day.}
-\]
+$$
 
 ### Droid Shard Contributions
 
@@ -90,9 +90,9 @@ Each member completing Reward Quests earns:
 
 Assuming all active members complete at least the 1st quest daily, and 80% complete the 10th quest (a reasonable estimate for active players), daily shards from Reward Quests are:
 
-\[
+$$
 (93 \times 1) + (93 \times 0.8 \times 2) \approx 93 + 149 = 242 \text{ shards.}
-\]
+$$
 
 #### Island Battles
 For Island Battles, the average shard yield per attempt is:
@@ -104,35 +104,35 @@ Total expected shards per battle: \( 0.5 + 0 + 0.5 = 1 \) shard.
 
 Assuming each active member completes one Island Battle per login (a conservative estimate, as some may do more), daily shards from Island Battles are:
 
-\[
+$$
 93 \times 1 = 93 \text{ shards.}
-\]
+$$
 
 #### Lucky Fortune (Weekends Only)
 Lucky Fortune offers 5 free draws per day with a 9.5% chance of a shard per draw. Expected shards per member per weekend day:
 
-\[
+$$
 5 \times 0.095 = 0.475 \text{ shards.}
-\]
+$$
 
 On weekends, daily shards from Lucky Fortune (for 93 logins):
 
-\[
+$$
 93 \times 0.475 \approx 44 \text{ shards.}
-\]
+$$
 
 Since Lucky Fortune is only available on weekends (2 out of 7 days), its weekly contribution is averaged over the week:
 
-\[
+$$
 \frac{44 \times 2}{7} \approx 12.6 \text{ shards per day.}
-\]
+$$
 
 ### Total Daily Droid Shard Estimate
 Combining contributions from all sources:
 
-\[
+$$
 242 \text{ (Reward Quests)} + 93 \text{ (Island Battles)} + 12.6 \text{ (Lucky Fortune)} \approx 347.6 \text{ shards per day.}
-\]
+$$
 
 ## Conclusion
 Based on the analysis, the alliance accumulates approximately **348 Droid Shards per day** from active members. This estimate accounts for daily logins, Reward Quests, Island Battles, and weekend Lucky Fortune draws. These findings can guide decisions on alliance strategies, such as prioritizing events or optimizing quest completion rates. For further analysis, collecting data on Pop Stars rewards and gem-based Lucky Fortune purchases could refine the estimate.
